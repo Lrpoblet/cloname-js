@@ -10,8 +10,18 @@
 
     // Esperamos 3 segundos y mostramos la información en el div que guarda el contenido
     var vSuma = v1.plus(v2);
+    var vResta = v1.minus(v2);
+    var n = v1.escalar(v2);
+
     setTimeout(function() {
-        $("#content").text("v(1,5) + v(7, -2) = v(" + vSuma.x + ", " + vSuma.y + ")");
-    }, 3000);
+        //$("#content").text("v(1,5) + v(7, -2) = v(" + vSuma.x + ", " + vSuma.y + ")");
+    //}, 3000);
+    var list = $("<ul>")
+        .append($("<li>").text("Suma: " + vSuma)) //ya que hemos creado toString() en vector.js
+        .append($("<li>").text("Resta: " + vResta))
+        .append($("<li>").text("Producto Escalar: " + n));
+
+    $("#content").html(list);
+}, 3000);
 
 })($); // La IIFE recibe como argumento el objeto básico de jQuery
